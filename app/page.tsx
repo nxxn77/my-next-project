@@ -45,18 +45,59 @@ const date: {contents:News[]} = {
   
 export default function Home() {
   return (
-  <section className={Styles.top}>
-   <div>
-     <h1 className="title">テクノロジーで世界を変える</h1>
-     <p className="description">私たちは市場をリードしているグローバルテックカンパニーです。</p>
-   </div>
-   <Image
-     className={Styles.bgimg}
-     src="/img-mv.jpg"
-     alt=""
-     width={4000}
-     height={1200}
-    />
-  </section>
+    <>
+      <section className={Styles.top}>
+        <div>
+          <h1 className="title">テクノロジーで世界を変える</h1>
+          <p className="description">私たちは市場をリードしているグローバルテックカンパニーです。</p>
+        </div>
+        <Image
+          className={Styles.bgimg}
+          src="/img-mv.jpg"
+          alt=""
+          width={4000}
+          height={1200}
+        />
+      </section>
+      <section className={Styles.news}>
+        <h2 className={Styles.newsTitle}>News</h2>
+        <ul>
+          {date.contents.map((article) => (
+            <li key={article.id} className={Styles.list}>
+              <div className={Styles.image}>
+                <Image
+                  className={Styles.image}
+                  src="/no-image.png"
+                  alt="No Image"
+                  width={1200}
+                  height={630}
+                />
+              </div>
+              <dl className={Styles.content}>
+                <dt className={Styles.newsItemTitle}>{article.title}</dt>
+                <dd className={Styles.mate}>
+                  <span className={Styles.tag}>{article.category.name}</span>
+                  <span className={Styles.date}>
+                    <Image
+                      src="/clock.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                      priority
+                    />
+                    {article.publishedAt}
+                  </span>
+                </dd>
+              </dl>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
+
+         
+
+
+
