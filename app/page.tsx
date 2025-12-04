@@ -40,11 +40,12 @@ const date: {contents:News[]} = {
       },
       publishedAt: "2023/04/19",
       createdAt: "2023/04/19",
-    }
-    ],
-  };
-  
+    },
+  ],
+};
+
 export default function Home() {
+  const sliceDate: News[] = date.contents.slice(0, 2);
   return (
     <>
       <section className={Styles.top}>
@@ -100,8 +101,3 @@ export default function Home() {
     </>
   );
 }
-
-         
-
-
-
