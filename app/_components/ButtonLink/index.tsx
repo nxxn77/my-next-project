@@ -1,8 +1,9 @@
 import styles from "./index.module.css";
+import { News } from "@/app/_libs/microcms";
 
 type Props = {
-    href: string;
-    children: React.ReactNode;
+  href: string;
+  children: React.ReactNode;
 };
 
 export default function ButtonLink({ href, children }: Props) {
@@ -11,4 +12,4 @@ export default function ButtonLink({ href, children }: Props) {
             {children}
         </a>
     );
-}
+} 

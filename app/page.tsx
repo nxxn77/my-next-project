@@ -1,16 +1,9 @@
 import Styles from "./page.module.css";
 import Image from "next/image";
 
+import NewsLink from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
-type News = {
-  id: string;
-  title: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  createdAt: string;
-};
+import { News } from "@/app/_libs/microcms";
 
 const date: {contents:News[]} = {
   contents: [
@@ -63,37 +56,7 @@ export default function Home() {
       </section>
       <section className={Styles.news}>
         <h2 className={Styles.newsTitle}>News</h2>
-        <ul>
-          {date.contents.map((article) => (
-            <li key={article.id} className={Styles.list}>
-              <div className={Styles.image}>
-                <Image
-                  className={Styles.image}
-                  src="/no-image.png"
-                  alt="No Image"
-                  width={1200}
-                  height={630}
-                />
-              </div>
-              <dl className={Styles.content}>
-                <dt className={Styles.newsItemTitle}>{article.title}</dt>
-                <dd className={Styles.mate}>
-                  <span className={Styles.tag}>{article.category.name}</span>
-                  <span className={Styles.date}>
-                    <Image
-                      src="/clock.svg"
-                      alt=""
-                      width={16}
-                      height={16}
-                      priority
-                    />
-                    {article.publishedAt}
-                  </span>
-                </dd>
-              </dl>
-            </li>
-          ))}
-        </ul>
+        <NewsLink news={sliceDate} />
         <div className={Styles.newsLink}>
           <ButtonLink href="/news">もっと見る</ButtonLink>
         </div>
