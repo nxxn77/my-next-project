@@ -4,7 +4,7 @@ images: {
     remotePatterns: [
         {
             protocol: "https",
-            hostname: "images.microms-assetes.io",
+            hostname: "images.microcms-assets.io",
         },
     ],
   }, 
