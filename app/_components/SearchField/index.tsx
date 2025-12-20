@@ -28,7 +28,7 @@ function SearchFiledComponent() {
                 name="q"
                 defaultValue={searchParams.get("q") ?? undefined}
                 placeholder="キーワードを入力"
-                className={styles.searchinput}
+                className={styles.searchInput}
             />
             </label>
         </form>
