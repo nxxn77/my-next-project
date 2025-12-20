@@ -6,12 +6,13 @@ function validateEmail(email: string) {
 }
 
 export async function createContactDate(_prevState: any, formData: FormData) {
-    const rawFormData = formData.get("lastname") as string,
-        firstname = formData.get("firstname") as string,
-        company = formData.get("company") as string,
-        email = formData.get("email") as string,
-        message = formData.get("message") as string;
-};
+    const rawFormData = {
+        lastname: formData.get("lastname") as string,
+        firstname: formData.get("firstname") as string,
+        company: formData.get("company") as string,
+        email: formData.get("email") as string,
+        message: formData.get("message") as string
+    };
 
 if (!rawFormData.lastname) {
     return {
@@ -55,7 +56,7 @@ if (!rawFormData.message) {
 }
 
 const result = await fetch(
-    "https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_ID}",
+    `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_ID}`,
     {
         method: "POST",
         headers: {
@@ -106,3 +107,4 @@ try {
 return { status: "success",message: "OK" };
 
 
+}
