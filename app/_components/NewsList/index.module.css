@@ -30,7 +30,7 @@
     gap: 16px;
 }
 
-@media (max-widgth: 640px) {
+@media (max-width: 640px) {
     .link {
         display: block;
         padding: 16px 0;
@@ -46,7 +46,7 @@
         margin-bottom: 0.4rem;
     }
 
-    .mate {
+    .meta {
         display: flex;
         align-items: center;
         gap: 16px;
